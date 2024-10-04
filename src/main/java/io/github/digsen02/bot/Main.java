@@ -21,7 +21,7 @@ public class Main {
     public static void main(String[] args) {
         Dotenv dotenv = Dotenv.load();
 
-        DatabaseConnection.getInstance().getConnection();
+        //DatabaseConnection.getInstance().getConnection();
 
         JDA jda = createJDAInstance(dotenv);
         registerCommands(jda);
@@ -32,7 +32,7 @@ public class Main {
     private static JDA createJDAInstance(Dotenv dotenv) {
         return JDABuilder.createDefault(dotenv.get("TOKEN"))
                 .enableIntents(GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_MEMBERS)
-                .setActivity(Activity.playing("은행 테스트_2"))
+                .setActivity(Activity.playing("은행 테스트_3"))
                 .build();
     }
 
@@ -54,9 +54,9 @@ class CommandListener extends net.dv8tion.jda.api.hooks.ListenerAdapter {
     @Override
     public void onSlashCommandInteraction(net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent event) {
         String commandName = event.getName();
-        SlashCommand command = SlashCommandFactory.getCommand(commandName);
-        if (command != null) {
-            command.execute(event);
+        SlashCommand slashCommand = SlashCommandFactory.getSlashCommand(commandName);
+        if (slashCommand != null) {
+            slashCommand.execute(event);
         }
     }
     @Override
@@ -70,9 +70,9 @@ class CommandListener extends net.dv8tion.jda.api.hooks.ListenerAdapter {
     @Override
     public void onModalInteraction(ModalInteractionEvent event) {
         String modalId = event.getModalId();
-        ModalCommand command = ModalCommandFactory.getModalCommand(modalId);
-        if (command != null) {
-            command.execute(event);
+        ModalCommand modalCommand = ModalCommandFactory.getModalCommand(modalId);
+        if (modalCommand != null) {
+            modalCommand.execute(event);
         }
     }
 }

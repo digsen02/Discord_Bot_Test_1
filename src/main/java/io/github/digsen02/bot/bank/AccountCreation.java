@@ -1,4 +1,4 @@
-package io.github.digsen02.bot.commands.factory.slash.bank;
+package io.github.digsen02.bot.bank;
 
 import io.github.digsen02.db.DatabaseSetting;
 

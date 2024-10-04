@@ -1,6 +1,6 @@
 package io.github.digsen02.bot.commands.modals;
 
-import io.github.digsen02.bot.commands.factory.slash.bank.AccountCreation;
+import io.github.digsen02.bot.bank.AccountCreation;
 import io.github.digsen02.bot.commands.factory.modal.ModalCommand;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;

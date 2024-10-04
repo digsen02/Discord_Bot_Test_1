@@ -1,4 +1,5 @@
 package io.github.digsen02.bot.commands.factory.slash;
+import io.github.digsen02.bot.commands.pages.TestCommand;
 import io.github.digsen02.bot.commands.slashs.*;
 
 import java.util.HashMap;
@@ -15,7 +16,7 @@ public class SlashCommandFactory {
     }
 
 
-    public static SlashCommand getCommand(String commandName) {
+    public static SlashCommand getSlashCommand(String commandName) {
         return commands.get(commandName);
     }
 }

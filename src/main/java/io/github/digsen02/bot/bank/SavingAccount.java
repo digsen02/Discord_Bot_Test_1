@@ -1,4 +1,4 @@
-package io.github.digsen02.bot.commands.factory.slash.bank;
+package io.github.digsen02.bot.bank;
 
 public class SavingAccount {
     private String account;

@@ -1,4 +1,4 @@
-package io.github.digsen02.bot.commands.factory.slash.bank;
+package io.github.digsen02.bot.bank;
 
 import io.github.digsen02.db.DatabaseSetting;
 import net.dv8tion.jda.api.JDA;
@@ -29,6 +29,4 @@ public class AccountManager {
         String date[] = String.valueOf(DatabaseSetting.getTimeLine(userId, serverId, account)).split(" ");
         return date[0];
     }
-
-
 }

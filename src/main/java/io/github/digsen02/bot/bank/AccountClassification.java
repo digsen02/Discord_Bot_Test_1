@@ -1,4 +1,4 @@
-package io.github.digsen02.bot.commands.factory.slash.bank;
+package io.github.digsen02.bot.bank;
 
 public class AccountClassification {
     public String classifyAccount(String accounts) {
