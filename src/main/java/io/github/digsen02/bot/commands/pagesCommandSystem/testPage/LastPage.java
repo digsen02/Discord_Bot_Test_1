@@ -1,4 +1,4 @@
-package io.github.digsen02.bot.commands.slashes.testPage;
+package io.github.digsen02.bot.commands.pagesCommandSystem.testPage;
 
 import io.github.digsen02.bot.commands.pagesCommandSystem.PageCommandContext;
 import io.github.digsen02.bot.commands.state.PageState;

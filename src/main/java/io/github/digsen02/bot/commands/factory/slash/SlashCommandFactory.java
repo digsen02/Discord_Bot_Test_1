@@ -1,5 +1,5 @@
 package io.github.digsen02.bot.commands.factory.slash;
-import io.github.digsen02.bot.commands.pagesCommandSystem.TestCommand;
+import io.github.digsen02.bot.commands.slashes.TestCommand;
 import io.github.digsen02.bot.commands.slashes.*;
 
 import java.util.HashMap;

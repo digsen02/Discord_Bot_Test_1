@@ -1,14 +1,14 @@
 package io.github.digsen02.bot.commands.pagesCommandSystem;
 
-import io.github.digsen02.bot.commands.slashes.bankUsageCommandPages.FirstPage;
+import io.github.digsen02.bot.commands.pagesCommandSystem.bankUsageCommandPages.FirstPage;
 import io.github.digsen02.bot.commands.state.PageState;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 
 public class PageCommandContext {
     private PageState state;
-    private ButtonInteractionEvent buttonInteractionEvent;
-    private SlashCommandInteractionEvent slashCommandInteractionEvent;
+    protected ButtonInteractionEvent buttonInteractionEvent;
+    protected SlashCommandInteractionEvent slashCommandInteractionEvent;
 
     public PageCommandContext(ButtonInteractionEvent event) {
         this.buttonInteractionEvent = event;
@@ -18,6 +18,9 @@ public class PageCommandContext {
     public PageCommandContext(SlashCommandInteractionEvent event) {
         this.slashCommandInteractionEvent = event;
         this.state = new FirstPage();
+    }
+
+    public PageCommandContext() {
     }
 
     public void updateEvent(ButtonInteractionEvent event) {
