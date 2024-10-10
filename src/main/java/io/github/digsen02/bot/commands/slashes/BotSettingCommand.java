@@ -1,4 +1,4 @@
-package io.github.digsen02.bot.commands.slashs;
+package io.github.digsen02.bot.commands.slashes;
 
 import io.github.digsen02.bot.commands.factory.slash.SlashCommand;
 import net.dv8tion.jda.api.EmbedBuilder;

@@ -1,4 +1,4 @@
-package io.github.digsen02.bot.commands.pages;
+package io.github.digsen02.bot.commands.pagesCommandSystem;
 
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 

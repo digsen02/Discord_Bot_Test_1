@@ -1,6 +1,6 @@
-package io.github.digsen02.bot.commands.pages;
+package io.github.digsen02.bot.commands.pagesCommandSystem;
 
-import io.github.digsen02.bot.commands.slashs.bankUsageCommandPages.FirstPage;
+import io.github.digsen02.bot.commands.slashes.bankUsageCommandPages.FirstPage;
 import io.github.digsen02.bot.commands.state.PageState;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
