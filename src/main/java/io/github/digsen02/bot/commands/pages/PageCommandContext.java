@@ -1,7 +1,6 @@
 package io.github.digsen02.bot.commands.pages;
 
-import io.github.digsen02.bot.commands.pages.pages.FirstPage;
-import io.github.digsen02.bot.commands.pages.pages.LastPage;
+import io.github.digsen02.bot.commands.slashs.bankUsageCommandPages.FirstPage;
 import io.github.digsen02.bot.commands.state.PageState;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
@@ -21,24 +20,27 @@ public class PageCommandContext {
         this.state = new FirstPage();
     }
 
+    public void updateEvent(ButtonInteractionEvent event) {
+        this.buttonInteractionEvent = event;
+    }
+
     public void setState(PageState state) {
         this.state = state;
     }
 
     public void handleInput(String buttonId) {
-        switch (buttonId) {
-            case "next" -> {
-                if (!(state instanceof LastPage)) {
-                    this.state = state.getNextPage();
-                }
+        if ("next".equals(buttonId)) {
+            PageState nextPage = state.getNextPage();
+            if (nextPage != null) {
+                this.state = nextPage;
             }
-            case "previous" -> {
-                if (!(state instanceof FirstPage)) {
-                    this.state = state.getPreviousPage();
-                }
+        } else if ("previous".equals(buttonId)) {
+            PageState previousPage = state.getPreviousPage();
+            if (previousPage != null) {
+                this.state = previousPage;
             }
-            default -> System.err.println("Invalid button ID: " + buttonId);
         }
+        updateMessage();
     }
 
     public void updateMessage() {
