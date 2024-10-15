@@ -1,18 +1,12 @@
 package io.github.digsen02.bot.bank;
 
+import io.github.digsen02.bot.commands.state.AccountCodeConnection;
 import io.github.digsen02.db.DatabaseSetting;
-import net.dv8tion.jda.api.JDA;
-import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.entities.Member;
 
-import java.util.Objects;
-import java.util.concurrent.CompletableFuture;
-
-public class AccountManager {
-    private DatabaseSetting DatabaseSetting = new DatabaseSetting();
+public class AccountManager extends AccountCodeConnection {
 
     public String getAccounts(String userId, String serverId) {
-        String haveAccount = DatabaseSetting.getAccountsByServerIdAndUserId(serverId, userId);
+        String haveAccount = databaseSetting.getAccountsByServerIdAndUserId(serverId, userId);
         String haveAccounts[] = haveAccount.split(":");
         haveAccount = "";
         int i = 0;
@@ -26,7 +20,7 @@ public class AccountManager {
     }
 
     public String getAccountDate(String userId, String serverId, String account) {
-        String date[] = String.valueOf(DatabaseSetting.getTimeLine(userId, serverId, account)).split(" ");
+        String date[] = String.valueOf(databaseSetting.getTimeLine(userId, serverId, account)).split(" ");
         return date[0];
     }
 }

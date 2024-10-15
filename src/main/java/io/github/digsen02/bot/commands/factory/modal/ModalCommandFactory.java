@@ -1,6 +1,7 @@
 package io.github.digsen02.bot.commands.factory.modal;
 
 import io.github.digsen02.bot.commands.modals.AccountCreatingModal;
+import io.github.digsen02.bot.commands.modals.GetBalanceModal;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,10 +11,10 @@ public class ModalCommandFactory {
 
     static {
         modals.put("createAccount", new AccountCreatingModal());
+        modals.put("getBalance", new GetBalanceModal());
     }
 
     public static ModalCommand getModalCommand(String modalId) {
         return modals.get(modalId);
     }
-
 }

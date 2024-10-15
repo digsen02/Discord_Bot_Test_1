@@ -1,5 +1,6 @@
 package io.github.digsen02.bot.commands.pagesCommandSystem;
 
+import io.github.digsen02.bot.commands.pagesCommandSystem.bankUsageCommandPages.BankUsageCommandPage;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 
 public class PageCommandManager {
@@ -7,7 +8,7 @@ public class PageCommandManager {
 
     public static PageCommandContext getContext(ButtonInteractionEvent event) {
         if (cachedContext == null) {
-            cachedContext = new PageCommandContext(event);
+            cachedContext = new BankUsageCommandPage(event);
         } else {
             cachedContext.updateEvent(event);
         }

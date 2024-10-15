@@ -1,17 +1,17 @@
 package io.github.digsen02.bot.bank;
 
+import io.github.digsen02.bot.commands.state.AccountCodeConnection;
 import io.github.digsen02.db.DatabaseSetting;
 
 import java.sql.Timestamp;
 import java.util.Random;
 
 public class AccountCreation {
-    DatabaseSetting DatabaseSetting = new DatabaseSetting();
-
+    DatabaseSetting dbSetting;
     public String createAccount(String userId, String serverId, double money) {
         String account = generateRandomAccountNumber("simple"); //입력값 변동
-        DatabaseSetting.setAccount(userId, serverId, account, money);
-        DatabaseSetting.setTimeLine(userId, serverId, "make:account", getCurrentTimestamp(), money, account);
+        dbSetting.setAccount(userId, serverId, account, money);
+        dbSetting.setTimeLine(userId, serverId, "make:account", getCurrentTimestamp(), money, account);
         return account;
     }
 
@@ -23,9 +23,9 @@ public class AccountCreation {
 
         switch (accountType) {
             case "simple":
-                return "0310" + "-" + "8734" + "-" + randomNum + "-" + DatabaseSetting.getMaxCount();
+                return "0310" + "-" + "8734" + "-" + randomNum + "-" + dbSetting.getMaxCount();
             case "stock":
-                return "0310" + "-" + "3245" + "-" + randomNum + "-" + DatabaseSetting.getMaxCount();
+                return "0310" + "-" + "3245" + "-" + randomNum + "-" + dbSetting.getMaxCount();
         }
         return null;
     }

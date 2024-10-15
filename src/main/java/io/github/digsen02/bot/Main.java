@@ -21,7 +21,7 @@ public class Main {
     public static void main(String[] args) {
         Dotenv dotenv = Dotenv.load();
 
-        //DatabaseConnection.getInstance().getConnection();
+        DatabaseConnection.getInstance().getConnection();
 
         JDA jda = createJDAInstance(dotenv);
         registerCommands(jda);

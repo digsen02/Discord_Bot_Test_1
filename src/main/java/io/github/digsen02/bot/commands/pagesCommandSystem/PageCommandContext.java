@@ -10,19 +10,6 @@ public class PageCommandContext {
     protected ButtonInteractionEvent buttonInteractionEvent;
     protected SlashCommandInteractionEvent slashCommandInteractionEvent;
 
-    public PageCommandContext(ButtonInteractionEvent event) {
-        this.buttonInteractionEvent = event;
-        this.state = new FirstPage();
-    }
-
-    public PageCommandContext(SlashCommandInteractionEvent event) {
-        this.slashCommandInteractionEvent = event;
-        this.state = new FirstPage();
-    }
-
-    public PageCommandContext() {
-    }
-
     public void updateEvent(ButtonInteractionEvent event) {
         this.buttonInteractionEvent = event;
     }
