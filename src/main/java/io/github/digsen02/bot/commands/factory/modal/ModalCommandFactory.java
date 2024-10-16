@@ -7,14 +7,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ModalCommandFactory {
-    private static final Map<String, ModalCommand> modals = new HashMap<>();
+    static final Map<String, ModalCommand> modals = new HashMap<>();
 
     static {
         modals.put("createAccount", new AccountCreatingModal());
         modals.put("getBalance", new GetBalanceModal());
     }
-
     public static ModalCommand getModalCommand(String modalId) {
+        System.out.println("modalId: " + modalId);
         return modals.get(modalId);
     }
 }

@@ -20,6 +20,7 @@ public class AccountCreatingButton implements ButtonCommand{
         Modal modal = Modal.create("createAccount", "초기 입금할 돈을 입력하세요.")
                 .addActionRow(textInput)
                 .build();
+        System.out.println("start AccountCreatingButton");
         event.replyModal(modal).queue();
     }
 }

@@ -17,6 +17,7 @@ public class ButtonCommandFactory {
         buttons.put("previous", new PreviousButton());
     }
     public static ButtonCommand getButtonCommand(String buttonId) {
+        System.out.println(buttonId + " in getButtonCommand");
         return buttons.get(buttonId);
     }
 

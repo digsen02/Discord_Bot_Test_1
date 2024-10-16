@@ -4,7 +4,6 @@ import io.github.cdimascio.dotenv.Dotenv;
 import io.github.digsen02.bot.commands.factory.button.ButtonCommand;
 import io.github.digsen02.bot.commands.factory.button.ButtonCommandFactory;
 import io.github.digsen02.bot.commands.factory.modal.ModalCommand;
-import io.github.digsen02.bot.commands.factory.modal.ModalCommandFactory;
 import io.github.digsen02.bot.commands.factory.slash.SlashCommand;
 import io.github.digsen02.bot.commands.factory.slash.SlashCommandFactory;
 import io.github.digsen02.db.DatabaseConnection;
@@ -13,9 +12,15 @@ import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.events.interaction.ModalInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.requests.restaction.CommandListUpdateAction;
+
+import static io.github.digsen02.bot.commands.factory.TestCommand.testPrint;
+import static io.github.digsen02.bot.commands.factory.modal.ModalCommandFactory.getModalCommand;
+import io.github.digsen02.bot.commands.factory.modal.ModalCommandGetModalIdTest;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -49,7 +54,7 @@ public class Main {
 
 }
 
-class CommandListener extends net.dv8tion.jda.api.hooks.ListenerAdapter {
+class CommandListener extends ListenerAdapter {
 
     @Override
     public void onSlashCommandInteraction(net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent event) {
@@ -70,9 +75,18 @@ class CommandListener extends net.dv8tion.jda.api.hooks.ListenerAdapter {
     @Override
     public void onModalInteraction(ModalInteractionEvent event) {
         String modalId = event.getModalId();
-        ModalCommand modalCommand = ModalCommandFactory.getModalCommand(modalId);
+        testPrint("Hi");
+        System.out.println(modalId + " in onModalInteraction 1 ");
+        testPrint(modalId);
+        ModalCommandGetModalIdTest.getModalId(modalId);
+        testPrint("aksdsada");
+        System.out.println(modalId + " in onModalInteraction 2 ");
+        ModalCommand modalCommand = getModalCommand(modalId);
+
+        System.out.println(modalId + " in onModalInteraction 3 ");
         if (modalCommand != null) {
             modalCommand.execute(event);
+
         }
     }
 }
