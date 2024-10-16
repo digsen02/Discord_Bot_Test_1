@@ -5,9 +5,7 @@ import static io.github.digsen02.bot.commands.factory.modal.ModalCommandFactory.
 public class ModalCommandGetModalIdTest {
     public static void getModalId(String modalId) {
         System.out.println(modalId + " in getModalId 1");
-        synchronized (modals) {
-            modals.get(modalId);
-        }
+        modals.get(modalId);
         System.out.println(modalId + " in getModalId 2");
     }
 }
