@@ -14,7 +14,9 @@ public class ModalCommandFactory {
         modals.put("getBalance", new GetBalanceModal());
     }
     public static ModalCommand getModalCommand(String modalId) {
-        System.out.println("modalId: " + modalId);
+        System.out.println("1 modalId: " + modalId);
+        System.out.println("2 modalId: " + modalId);
+        System.out.println("3 modalId: " + modalId);
         return modals.get(modalId);
     }
 }
